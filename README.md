@@ -1,7 +1,7 @@
 # SampleParaCal
 
 
-[![PyPI version](https://badge.fury.io/py/medsamplesize.svg)](https://badge.fury.io/py/medsamplesize)
+[![PyPI version](https://badge.fury.io/py/medsamplesize.svg)](https://badge.fury.io/py/spcal)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A comprehensive Python package for calculating sample sizes in medical diagnostic studies. This package implements a wide range of statistical methods for diagnostic research, including:
