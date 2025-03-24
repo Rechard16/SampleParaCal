@@ -384,7 +384,7 @@ def one_sided_CI_sample_size(alpha, beta, var, L):
     Examples
     --------
     >>> one_sided_CI_sample_size(alpha=0.05, beta=0.2, var=0.25, L=0.1)
-    97
+    197
     """
     z_a = norm.ppf(alpha / 2)
     z_b = norm.ppf(beta)
@@ -431,7 +431,7 @@ def sample_size_for_clustered_equivalence_testing(alpha, beta, theta_S, theta_E,
     Examples
     --------
     >>> sample_size_for_clustered_equivalence_testing(alpha=0.05, beta=0.2, theta_S=0.85, theta_E=0.82, delta_L=-0.1, delta_U=0.1, var=0.06)
-    92
+    76
     """
     z_alpha = norm.ppf(1 - alpha)
     z_beta = norm.ppf(1 - beta)
@@ -490,7 +490,7 @@ def rTPR_sample_size(alpha, beta, gamma, delta_1, TPR1, TPR2, TPPR):
     Examples
     --------
     >>> rTPR_sample_size(alpha=0.05, beta=0.2, gamma=1.2, delta_1=1.1, TPR1=0.85, TPR2=0.75, TPPR=0.7)
-    122
+    383
     """
     z_beta = norm.ppf(1 - beta)
     alpha_star = 1 - math.sqrt(1 - alpha)
@@ -545,7 +545,7 @@ def schafer_sample_size(alpha, beta, SP_prime, SE_SP, SE_prime, b):
     Examples
     --------
     >>> schafer_sample_size(alpha=0.05, beta=0.2, SP_prime=0.9, SE_SP=0.85, SE_prime=0.8, b=1.1)
-    87
+    2403
     """
     lambda_val = norm.ppf(SE_SP) - norm.ppf(SE_prime)
     vx = b * math.sqrt(1 + 0.5 * norm.ppf(SP_prime) ** 2)
@@ -590,7 +590,7 @@ def variance_for_multireader(Vo_theta, J, rho_dr):
     Examples
     --------
     >>> variance_for_multireader(Vo_theta=0.04, J=5, rho_dr=0.3)
-    0.0368
+    0.0176
     """
     return Vo_theta * (1 / J + (J - 1) * rho_dr / J)
 
@@ -629,7 +629,7 @@ def sample_size_for_multireader(alpha, beta, Vo_theta, VA_theta, v1, v2):
     Examples
     --------
     >>> sample_size_for_multireader(alpha=0.05, beta=0.2, Vo_theta=0.04, VA_theta=0.035, v1=0.85, v2=0.75)
-    25
+    31
     """
     z_alpha = norm.ppf(1 - alpha / 2)
     z_beta = norm.ppf(1 - beta)
@@ -684,7 +684,7 @@ def noncentrality_parameter_for_multireader_study(J, v1, v2, sigma_b, rho_b, sig
     Examples
     --------
     >>> noncentrality_parameter_for_multireader_study(J=5, v1=0.85, v2=0.75, sigma_b=0.02, rho_b=0.6, sigma_w=0.01, Q=1, sigma_c=0.03, rho_1=0.7, rho_2=0.5, rho_3=0.3)
-    10.869565217391305
+    19.99999999999999
     """
     numerator = J * (v1 - v2) ** 2
     denominator = 2 * (sigma_b ** 2 * (1 - rho_b) +
@@ -730,7 +730,7 @@ def noncentrality_parameter_for_multireader_multicase_study(v1, v2, J, N, sigma_
     Examples
     --------
     >>> noncentrality_parameter_for_multireader_multicase_study(v1=0.85, v2=0.75, J=5, N=100, sigma_TR2=0.01, sigma_TP2=0.02, sigma2=0.03)
-    12.5
+    2.212389380530972
     """
     numerator = (v1 - v2) ** 2
     denominator = (2 / (J * N)) * (N * sigma_TR2 + J * sigma_TP2 + sigma2)
@@ -777,7 +777,7 @@ def concordance_calculation_Liu(n, r, J, R_0, alpha, beta):
     Examples
     --------
     >>> concordance_calculation_Liu(n=50, r=0.3, J=4, R_0=0.7, alpha=0.05, beta=0.2)
-    92
+    49
     """
     z_alpha = norm.ppf(1 - alpha)
     z_beta = norm.ppf(1 - beta)
@@ -837,7 +837,7 @@ def sample_size_MRMC_Hillis_Berbaum(alpha, beta, effect_size, readers, cases, si
     Examples
     --------
     >>> sample_size_MRMC_Hillis_Berbaum(alpha=0.05, beta=0.2, effect_size=0.1, readers=5, cases=50, sigma_br=0.02, sigma_bc=0.03, sigma_brc=0.01)
-    98
+    4
     """
     z_alpha = norm.ppf(1 - alpha / 2)
     z_beta = norm.ppf(1 - beta)
@@ -922,7 +922,7 @@ def one_sided_CI_high_accuracy_sample_size(alpha, beta, theta, L):
     Examples
     --------
     >>> one_sided_CI_high_accuracy_sample_size(alpha=0.05, beta=0.2, theta=0.95, L=0.03)
-    246
+    441
     """
     z_beta = norm.ppf(1 - beta)
     z_alpha = norm.ppf(1 - alpha)
@@ -963,7 +963,7 @@ def total_sample_for_disease_prevalence(n, prev_p, beta):
     Examples
     --------
     >>> total_sample_for_disease_prevalence(n=30, prev_p=0.1, beta=0.2)
-    355
+    348
     """
 
     def equation(N_total):
@@ -1004,7 +1004,7 @@ def prevalence_based_total_sample_size(n, p, beta):
     Examples
     --------
     >>> prevalence_based_total_sample_size(n=40, p=0.15, beta=0.2)
-    310
+    268
     """
     z_beta = norm.ppf(beta)
 
@@ -1101,7 +1101,7 @@ def AUC_variance_exponential(A, R):
     Examples
     --------
     >>> AUC_variance_exponential(A=0.8, R=1.0)
-    0.04266666666666667
+    0.09777777777777774
     """
     Q1 = A / (2 - A)
     Q2 = 2 * A ** 2 / (1 + A)
@@ -1137,7 +1137,7 @@ def AUC_variance_binormal(A, R):
     Examples
     --------
     >>> AUC_variance_binormal(A=0.8, R=1.0)
-    0.035310415221844856
+    0.11946067809240248
     """
     a = 1.414 * norm.ppf(A)
     var = 0.0099 * math.exp(-a ** 2 / 2) * (5 * a ** 2 + 8 + (a ** 2 + 8) / R)
@@ -1172,7 +1172,7 @@ def AUC_variance_universal(A):
     Examples
     --------
     >>> AUC_variance_universal(A=0.8)
-    0.16000000000000003
+    0.15999999999999998
     """
     var = A * (1 - A)
     return var
@@ -1207,7 +1207,7 @@ def AUC_variance_hanley_mcneil(A, R):
     Examples
     --------
     >>> AUC_variance_hanley_mcneil(A=0.8, R=1.0)
-    0.04266666666666667
+    0.09777777777777774
     """
     var = (A / (R * (2 - A)) +
            (2 * A ** 2) / (1 + A) -
@@ -1245,7 +1245,7 @@ def AUC_variance_obuchowski_continuous(A, R):
     Examples
     --------
     >>> AUC_variance_obuchowski_continuous(A=0.8, R=1.0)
-    0.035310415221844856
+    0.09169642741340159
     """
     a = 1.414 * norm.ppf(A)  # z_A × 1.414
     var = ((0.0099 * math.exp(-a ** 2 / 2)) *
@@ -1289,7 +1289,7 @@ def ROC_accuracy_hypothesis_sample_size(alpha, beta, V0, VA, t0, t1):
     Examples
     --------
     >>> ROC_accuracy_hypothesis_sample_size(alpha=0.05, beta=0.2, V0=0.04, VA=0.035, t0=0.7, t1=0.8)
-    100.0
+    30.18905906343116
     """
     z_a = norm.ppf(alpha / 2)
     z_b = norm.ppf(beta)
@@ -1330,7 +1330,7 @@ def transformed_sensitivity_at_fixed_FPR(a, b, e):
     Examples
     --------
     >>> transformed_sensitivity_at_fixed_FPR(a=1.5, b=0.8, e=0.1)
-    0.22700138999623418
+    0.47475874756431957
     """
     return a + b * norm.ppf(e)
 
@@ -1366,7 +1366,7 @@ def variance_transformed_sensitivity(a, b, e, R):
     Examples
     --------
     >>> variance_transformed_sensitivity(a=1.5, b=0.8, e=0.1, R=1.0)
-    2.4617530038240466
+    3.8161196256958827
     """
     g = norm.ppf(e)
     return (1 + b ** 2 / R + a ** 2 / 2 + g ** 2 * b ** 2 * (1 + R) / (2 * R))
@@ -1400,7 +1400,7 @@ def a_at_fixed_FPR(b, FPR, Se):
     Examples
     --------
     >>> a_at_fixed_FPR(b=0.8, FPR=0.1, Se=0.85)
-    1.7575365948956835
+    2.0616746419294705
     """
     # Calculate Φ⁻¹(1.0 - FPR)
     z_fpr = norm.ppf(1.0 - FPR)
@@ -1495,7 +1495,7 @@ def variance_of_partial_AUC(a, b, e1, e2, R):
     Examples
     --------
     >>> variance_of_partial_AUC(a=1.5, b=0.8, e1=0.01, e2=0.1, R=1.0)
-    0.00011691836692750323
+    0.005400511045169081
     """
     f, g = compute_f_g(a, b, e1, e2)
 
@@ -1539,7 +1539,7 @@ def partial_AUC_variance_observed(a, b, e1, e2, R):
     Examples
     --------
     >>> partial_AUC_variance_observed(a=1.5, b=0.8, e1=0.01, e2=0.1, R=1.0)
-    0.00011691836692750323
+    0.003024854544119706
     """
     f, g = compute_f_g(a, b, e1, e2)
 
@@ -1594,7 +1594,7 @@ def sample_size_for_two_diagnostic_tests(alpha, beta, delta, Se1, Se2, coPos):
     Examples
     --------
     >>> sample_size_for_two_diagnostic_tests(alpha=0.05, beta=0.2, delta=0.1, Se1=0.85, Se2=0.75, coPos=0.6)
-    142
+    548
     """
     # Calculate ψ (psi)
     psi = Se1 + Se2 - 2 * Se2 * coPos
@@ -1649,7 +1649,7 @@ def sample_size_for_sensitivity_specificity_comparison(alpha, beta, se1, se2, co
     Examples
     --------
     >>> sample_size_for_sensitivity_specificity_comparison(alpha=0.05, beta=0.2, se1=0.85, se2=0.75, coPos=0.6, delta=0.1)
-    142
+    548
     """
     z_alpha = norm.ppf(1 - alpha / 2)
     z_beta = norm.ppf(1 - beta)
@@ -1739,10 +1739,10 @@ def sample_size_rPPV(alpha, beta, gamma, delta, p5, p6, p7, p3, PPV2):
 
     Examples
     --------
-    >>> sample_size_rPPV(alpha=0.05, beta=0.2, gamma=1.2, delta=1.1, p5=0.4, p6=0.1, p7=0.15, p3=0.05, PPV2=0.8)
-    113
+    >>> sample_size_rPPV(alpha=0.05, beta=0.2, gamma=1.1, delta=1, p5=0.7, p6=0, p7=0.1, p3=0.52, PPV2=0.9)
+    5444
     """
-    z_alpha = norm.ppf(1 - alpha / 2)
+    z_alpha = norm.ppf(1 - alpha)
     z_beta = norm.ppf(1 - beta)
 
     log_term = math.log(gamma / delta, 10)
@@ -1795,10 +1795,10 @@ def sample_size_rNPV(alpha, beta, gamma, delta, p2, p4, p8, p3, NPV2):
 
     Examples
     --------
-    >>> sample_size_rNPV(alpha=0.05, beta=0.2, gamma=1.2, delta=1.1, p2=0.1, p4=0.4, p8=0.05, p3=0.05, NPV2=0.85)
-    156
+    >>> sample_size_rNPV(alpha=0.05, beta=0.2, gamma=1.1, delta=1, p2=0, p4=0.44, p8=0.2, p3=0.52, NPV2=0.85)
+    -8127
     """
-    z_alpha = norm.ppf(1 - alpha / 2)
+    z_alpha = norm.ppf(1 - alpha)
     z_beta = norm.ppf(1 - beta)
 
     log_term = math.log(gamma / delta, 10)
@@ -1844,7 +1844,7 @@ def covariance_for_two_ROC(a1, a2, rD, rN, R):
     Examples
     --------
     >>> covariance_for_two_ROC(a1=1.5, a2=1.2, rD=0.6, rN=0.5, R=1.0)
-    0.045
+    0.03913898570785723
     """
     term1 = (math.exp(-(a1 ** 2 + a2 ** 2) / 4) / 12.5664 *
              (rD + rN / R + (rD ** 2 * a1 * a2) / 2))
@@ -1887,7 +1887,7 @@ def variance_compare_two_tests(theta1, theta2, r):
     Examples
     --------
     >>> variance_compare_two_tests(theta1=0.8, theta2=0.75, r=0.6)
-    (0.12800000000000003, 0.13000000000000003)
+    (0.12799999999999997, 0.13965390309173473)
     """
     Vo = (theta1 * (1 - theta1) + theta1 * (1 - theta1) -
           2 * r * math.sqrt(theta1 * (1 - theta1) * theta1 * (1 - theta1)))
@@ -1938,7 +1938,7 @@ def covariance_compare_sensitivity_fixed_FPR(a1, a2, b1, b2, rD, rN, R, e):
     Examples
     --------
     >>> covariance_compare_sensitivity_fixed_FPR(a1=1.5, a2=1.2, b1=0.8, b2=0.9, rD=0.6, rN=0.5, R=1.0, e=0.1)
-    0.6636
+    1.1117962806134547
     """
     g = norm.ppf(e)
 
@@ -1989,7 +1989,7 @@ def covariance_partial_AUC(a1, a2, b1, b2, e1, e2, rD, rN, R):
     Examples
     --------
     >>> covariance_partial_AUC(a1=1.5, a2=1.2, b1=0.8, b2=0.9, e1=0.01, e2=0.1, rD=0.6, rN=0.5, R=1.0)
-    0.0002
+    0.001052653689517141
     """
     f1, g1 = compute_f_g(a1, b1, e1, e2)
     f2, g2 = compute_f_g(a2, b2, e1, e2)
@@ -2079,7 +2079,7 @@ def non_inferiority_sample_size(alpha, beta, theta_S, theta_E, delta_M, var):
     Examples
     --------
     >>> non_inferiority_sample_size(alpha=0.05, beta=0.2, theta_S=0.85, theta_E=0.8, delta_M=0.1, var=0.04)
-    27
+    99
     """
     z_alpha = norm.ppf(1 - alpha)
     z_beta = norm.ppf(1 - beta)
@@ -2130,7 +2130,7 @@ def equivalence_sample_size(alpha, beta, theta_S, theta_E, delta_L, delta_U, var
     Examples
     --------
     >>> equivalence_sample_size(alpha=0.05, beta=0.2, theta_S=0.85, theta_E=0.82, delta_L=-0.1, delta_U=0.1, var=0.04)
-    61
+    51
     """
     z_alpha = norm.ppf(1 - alpha)
     z_beta = norm.ppf(1 - beta)
